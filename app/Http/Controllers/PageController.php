@@ -10,19 +10,23 @@ use App\Monan;
 use App\Comment;
 use App\User;
 use App\VungMien;
+use App\CuaHang;
 use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     //
     function __construct(){
-    	$slide=Slide::all();
-    	$theloai=TheLoai::all();
-    	 $vungmien=VungMien::all();
-         $thanhvienuutu=User::orderBy('master','desc')->take(5)->get();
-         view()->share('thanhvienuutu',$thanhvienuutu);
+
+    	$slide          =  Slide::all();
+    	$theloai        =  TheLoai::all();
+    	$vungmien       =  VungMien::all();
+        $thanhvienuutu  =  User::orderBy('master','desc')->take(5)->get();
+        $cuahangAll     =  CuaHang::all();
+        view()->share('thanhvienuutu',$thanhvienuutu);
 		view()->share('vungmien',$vungmien);
     	view()->share('theloai',$theloai);
     	view()->share('slide',$slide);
+        view()->share('cuahangAll',$cuahangAll);
     }
     function trangchu(){
     	
@@ -33,7 +37,7 @@ class PageController extends Controller
     }
     function loaimon($id){
         $loaimon = LoaiMon::find($id);
-        $monan=MonAn::where('id_LoaiMon','=',$id)->paginate(5);
+        $monan=MonAn::where('id_LoaiMon',$id)->paginate(5);
         return view('pages.loaimon',['loaimon'=>$loaimon,'monan'=>$monan]);
     }
     function monan($id){
@@ -42,10 +46,15 @@ class PageController extends Controller
         $view=$monan->SoLuotXem + 1;
         $monan->SoLuotXem=$view;
         $monan->save();
+
         $monlienquan=MonAn::where('id_LoaiMon','=',$monan->id_LoaiMon)->orderBy('id','desc')->take(4)->get();
         $comment=Comment::where('id_MonAn',$id)->orderBy('created_at','desc')->get();
         $monnoibat=MonAn::where('NoiBat',1)->take(4)->get();
-        return view('pages.monan',['monan'=>$monan,'comment'=>$comment,'monlienquan'=>$monlienquan,'monnoibat'=>$monnoibat]);
+
+        return view('pages.monan',['monan'=>$monan,
+                                   'comment'=>$comment,
+                                   'monlienquan'=>$monlienquan,
+                                   'monnoibat'=>$monnoibat]);
     }
     function getDangNhap(){
         return view('pages.dangnhap');
@@ -106,6 +115,7 @@ class PageController extends Controller
         $this->validate($request,array(
             'NoiDung'=>'required|max:255',
             ));
+        $monan = Monan::find($id);
         $comment=new Comment();
         $comment->NoiDung=$request->NoiDung;
         $comment->DanhGia=0;
@@ -117,7 +127,7 @@ class PageController extends Controller
         $user->master=$master;
         $user->save();
 
-        return redirect('monan/'.$id)->with('thongbao','Bình luận thành công');
+        return redirect('monan/'.$id.'/'.$monan->TieuDeKhongDau.'.html')->with('thongbao','Bình luận thành công');
     }
     function getNguoiDung(){
         return view('pages.nguoidung');
@@ -159,4 +169,9 @@ class PageController extends Controller
    		$monan=MonAn::where('id_VungMien',$id)->paginate(5);
    		return view('pages.vungmien',['monan'=>$monan,'vungmienMon'=>$vungmien]);
    }
+   public function cuahang($id){
+
+        $cuahang = CuaHang::find($id);
+        return view('pages.cuahang',['cuahang'=>$cuahang]);
+    }
 }

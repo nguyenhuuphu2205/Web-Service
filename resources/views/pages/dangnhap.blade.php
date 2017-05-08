@@ -9,7 +9,7 @@
                 <div class="panel panel-default">
 				  	<div class="panel-heading">Đăng nhập</div>
 				  	@if(session('thongbao'))
-				  		<div class="alert alert-success">
+				  		<div class="alert alert-danger">
 				  			{{session('thongbao')}}
 				  		</div>
 				  	@endif

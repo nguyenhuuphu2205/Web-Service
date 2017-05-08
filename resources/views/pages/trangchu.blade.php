@@ -25,7 +25,7 @@
 		                	<h3>
 		                		<a >{!!$tl->ten!!}</a>  	
 		                		@foreach($tl->loaimon as $lm)
-		                		<small><a href="loaimon/{{$lm->id}}"><i>{{$lm->ten}}</i></a></small>
+		                		<small><a href="loaimon/{{$lm->id}}/{{ $lm->ten_khong_dau }}.html"><i>{{$lm->ten}}</i></a></small>
 								@endforeach		                		
 		                	</h3>
 		                	<?php  
@@ -40,9 +40,9 @@
 			                    </div>
 
 			                    <div class="col-md-7">
-			                        <a href="monan/{{$mon1['id']}}"><h3>{!!$mon1['TieuDe']!!}</h3></a>
+			                        <a href="monan/{{$mon1['id']}}/{{ $mon1['TieuDeKhongDau'] }}.html"><h3>{!!$mon1['TieuDe']!!}</h3></a>
 			                        <p>{!!$mon1['TomTat']!!}</p>
-			                        <a class="btn btn-primary" href="monan/{{$mon1['id']}}">Chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
+			                        <a class="btn btn-primary" href="monan/{{$mon1['id']}}/{{ $mon1['TieuDeKhongDau'] }}.html">Chi tiết <span class="glyphicon glyphicon-chevron-right"></span></a>
 								</div>
 
 		                	</div>
@@ -50,7 +50,7 @@
 
 							<div class="col-md-4">
 							@foreach($data->all() as $ma)
-								<a href="monan/{{$ma['id']}}">
+								<a href="monan/{{$ma['id']}}/{{ $ma['TieuDeKhongDau'] }}.html">
 									<h4>
 										<span class="glyphicon glyphicon-list-alt"></span>
 										{{$ma['TieuDe']}}

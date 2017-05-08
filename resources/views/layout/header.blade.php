@@ -9,16 +9,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="trangchu">Ẩm Thực Bách Khoa</a>
+                <a class="navbar-brand" href="trangchu"><b style="color: cyan;">Ẩm Thực Bách Khoa</b></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="gioithieu">Giới thiệu</a>
+                        <a href="gioithieu"><b style="color:red;">Giới thiệu</b></a>
                     </li>
                     <li>
-                        <a href="lienhe">Liên hệ</a>
+                        <a href="lienhe"><b style="color: red;">Liên hệ</b></a>
                     </li>
                 </ul>
 
@@ -27,7 +27,7 @@
                     <div class="form-group">
 			          <input type="text" class="form-control" placeholder="Search" name="tukhoa">
 			        </div>
-			        <button type="submit" class="btn btn-default">Tìm kiếm</button>
+			        <button type="submit" class="btn btn-default" style="color:green;">Tìm kiếm</button>
 			    </form>
 
 			    <ul class="nav navbar-nav pull-right">

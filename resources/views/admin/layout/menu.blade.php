@@ -28,7 +28,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a><i class="fa fa-cube fa-fw"></i>Loại Món<span class="fa arrow"></span></a>
+                <a><i class="fa fa-bar-chart-o fa-fw"></i>Loại Món<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="admin/loaimon/danhsach" >Danh Sách Loại Món</a>
@@ -52,7 +52,7 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a><i class="fa fa-users fa-fw"></i>Vùng Miền<span class="fa arrow"></span></a>
+                <a><i class="glyphicon glyphicon-globe"></i>Vùng Miền<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="admin/vungmien/danhsach">Danh Sách Vùng Miền</a>
@@ -64,13 +64,25 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a><i class="fa fa-users fa-fw"></i>Slide<span class="fa arrow"></span></a>
+                <a><i class="glyphicon glyphicon-picture"></i>Slide<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="admin/slide/danhsach">Danh Sách Slide</a>
                     </li>
                     <li>
                         <a href="admin/slide/them">Thêm Slide</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a><i class="glyphicon glyphicon-link"></i>Cửa Hàng Liên Kết<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="admin/cuahang/danhsach">Danh Sách Cửa Hàng</a>
+                    </li>
+                    <li>
+                        <a href="admin/cuahang/them">Thêm Cửa Hàng</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

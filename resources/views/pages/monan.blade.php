@@ -84,6 +84,7 @@
                         </div>
                     @endif
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
+                    <h5><b style="color: green;">(Bạn Cần Đăng Nhập Để Có Thể Bình Luận..)</b></h5>
                     <form action="binhluan/{{$monan->id}}" method="post" role="form">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
@@ -109,12 +110,16 @@
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
                     <div class="media-body" >
-                        <h4 class="media-heading">{{$cm->user->username}}
-                            <small>{{$cm->created_at}}</small>
-                        
+                        <h4 class="media-heading media-heading list-group-item-info">
+                        {{$cm->user->username}}
+                        @if($cm->user->level == 0 || $cm->user->level == 1)
+                           <p style="color:red;">{{ "(admin)" }}</p>
+                        @else
+                           <p style="color:blue;">{{ "(customer)" }}</p>
+                        @endif
+                            <small>{{ $cm->created_at }}</small>
                         </h4>
                         {{$cm->NoiDung}}
-
 
                     </div>
                 </div>
@@ -137,12 +142,12 @@
                         
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-md-5">
-                                <a href="monan/{{$mlq->id}}">
+                                <a href="monan/{{$mlq->id}}/{{ $mlq->TieuDeKhongDau }}.html">
                                     <img class="img-responsive" src="upload/monan/{{$mlq->Hinh}}" alt="">
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="monan/{{$mlq->id}}">{!!$mlq->TieuDe!!}</a>
+                                <a href="monan/{{$mlq->id}}/{{ $mlq->TieuDeKhongDau }}.html">{!!$mlq->TieuDe!!}</a>
                             </div>
                             <p style="padding-left: 5px;">{!!$mlq->TomTat!!}</p>
                             <div class="break"></div>
@@ -162,12 +167,12 @@
                         <!-- item -->
                         <div class="row" style="margin-top: 10px;">
                             <div class="col-md-5">
-                                <a href="monan/{{$tnb->id}}">
+                                <a href="monan/{{$tnb->id}}/{{ $tnb->TieuDeKhongDau }}.html">
                                     <img class="img-responsive" src="upload/monan/{{$tnb->Hinh}}" alt="">
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="monan/{{$tnb->id}}"><b>{{$tnb->TieuDe}}</b></a>
+                                <a href="monan/{{$tnb->id}}/{{ $tnb->TieuDeKhongDau }}.html"><b>{{$tnb->TieuDe}}</b></a>
                             </div>
                             <p style="padding-left:5px;">{!!$tnb->TomTat!!}</p>
                             <div class="break"></div>

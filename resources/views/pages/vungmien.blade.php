@@ -26,7 +26,7 @@
                             <h3>{{$ma->TieuDe}}</h3>
                             <h3>{{$ma->TenMon}}</h3>
                             <p>{!!$ma->TomTat!!}</p>
-                            <a class="btn btn-primary" href="monan/{{$ma->id}}">Chi tiết<span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <a class="btn btn-primary" href="monan/{{$ma->id}}/{{ $ma->TieuDeKhongDau }}.html">Chi tiết<span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                         <div class="break"></div>
                     </div>

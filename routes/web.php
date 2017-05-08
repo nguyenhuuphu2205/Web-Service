@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout.index');
-});
+Route::get('/','PageController@trangchu');
 Route::get('admin/dangnhap',  'UserController@getDangNhapAdmin');
 Route::post('admin/dangnhap', 'UserController@postDangNhapAdmin');
 Route::get('admin/logout',    'UserController@getDangXuatAdmin');
@@ -74,23 +72,41 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 		Route::post('sua/{id}',  'UserController@postSua');
 		Route::get('xoa/{id}',   'UserController@getXoa');
 	});
+
+	Route::group(['prefix'=>'cuahang'],function(){
+    	Route::get('danhsach',   'CuaHangController@getDanhSach');
+		Route::get('them',       'CuaHangController@getThem');
+		Route::post('them',      'CuaHangController@postThem');
+		Route::get('sua/{id}',   'CuaHangController@getSua');
+		Route::post('sua/{id}',  'CuaHangController@postSua');
+		Route::get('xoa/{id}',   'CuaHangController@getXoa');
+	});
+
 	Route::group(['prefix'=>'ajax'],function(){
 		Route::get('loaimon/{idTheLoai}','AjaxController@getLoaiMon');
 	});
 });
 Route::get('trangchu','PageController@trangchu');
 Route::get('lienhe','PageController@lienhe');
-Route::get('loaimon/{id}','PageController@loaimon');
-Route::get('monan/{id}','PageController@monan');
+Route::get('gioithieu','PageController@getGioiThieu');
+
+Route::get('loaimon/{id}/{TenKhongDau}.html','PageController@loaimon');
+Route::get('monan/{id}/{TenKhongDau}.html','PageController@monan');
+
 Route::get('dangnhap','PageController@getDangNhap');
 Route::post('dangnhap','PageController@postDangNhap');
 Route::get('dangxuat','PageController@getDangXuat');
 Route::get('dangky','PageController@getDangKy');
 Route::post('dangky','PageController@postDangKy');
+
 Route::post('binhluan/{id}','PageController@postBinhLuan');
 Route::get('nguoidung','PageController@getNguoiDung');
 Route::post('nguoidung','PageController@postNguoiDung');
+
 Route::post('timkiem','PageController@postTimKiem');
 Route::get('timkiem','PageController@getTimKiem');
-Route::get('gioithieu','PageController@getGioiThieu');
-Route::get('vungmien/{id}','PageController@getVungMien');
+
+
+Route::get('vungmien/{id}/{TenKhongDau}.html','PageController@getVungMien');
+//Route::get('teambk',                 'PageController@getTeam');
+Route::get('cuahang/{id}/{TenKhongDau}.html',  'PageController@cuahang');
