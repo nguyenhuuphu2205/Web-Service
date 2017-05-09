@@ -51,13 +51,14 @@ class CuaHangController extends Controller
     }
     public function postSua(Request $request,$id){
         $cuahang = CuaHang::find($id);
-         $this->validate($request,
-                        [
-                            
-                        ],
-                        [
-                            
-                        ]);
+         $this->validate($request,array(
+            'ten'=>"required|min:3|max:100|unique:cuahang,ten,$id",
+            'gioi_thieu'=>'required|min:3|max:500',
+            'link'=>'required|min:5|max:100',
+            'vi_chi'=>'required|min:3|max:100',
+
+
+            ));
 
         $cuahang->ten = $request->ten;
         $cuahang->ten_khong_dau = changeTitle($request->ten);
