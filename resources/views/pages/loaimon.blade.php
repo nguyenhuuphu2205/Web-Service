@@ -7,7 +7,7 @@
 
             <div class="col-md-9 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#337AB7; color:white;">
+                    <div class="panel-heading" style="background-color:green; color:white;">
                         <h4><b>{{$loaimon->ten}}</b></h4>
                     </div>
                     @foreach($monan as $ma)
@@ -29,9 +29,11 @@
                         <div class="break"></div>
                     </div>
                      @endforeach
-                  
-                 {{$monan->links()}}
 
+                <!--phân trang cho font-and sử dụng hàm có sẵn trong frameword-->
+                <div style="text-align: center; ">
+                     {{$monan->links()}}
+                </div>
                 </div>
             </div> 
 

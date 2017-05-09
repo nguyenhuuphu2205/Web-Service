@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Website Món Ăn</title>
+    <title>BK Foods-Cooking</title>
     <base href="{{asset('')}}">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -55,7 +55,7 @@
                 
             <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{$monan->created_at}}</p>
+                <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$monan->created_at}}</p>
                 <hr>
 
                 <!-- Post Content -->

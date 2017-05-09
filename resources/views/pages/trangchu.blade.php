@@ -13,9 +13,12 @@
 
             <div class="col-md-9">
 	            <div class="panel panel-default">            
-	            	<div class="panel-heading" style="background-color:#337AB7; color:white;" >
-	            		<h2 style="margin-top:0px; margin-bottom:10px; padding-left: 300px;">             Ẩm thực BK</h2>
+	            	<div class="panel-heading" style="background-color:green; color:white;" >
+	            	<!--<h2 style="margin-top:0px; margin-bottom:5px; padding-left: 250px;">Ẩm Thực Bách Khoa</h2>-->
+	            		<h2 style="margin-top:0px; margin-bottom:5px;text-align: center;">Ẩm Thực Bách Khoa</h2>
+	            		<p align="center" style="color:cyan;">(Ngon + Bổ + Rẻ + Nhanh + Đảm Bảo An Toàn)</p>
 	            	</div>
+	            </div>
 
 	            	<div class="panel-body">
 	            		@foreach($theloai as $tl)
@@ -25,7 +28,9 @@
 		                	<h3>
 		                		<a >{!!$tl->ten!!}</a>  	
 		                		@foreach($tl->loaimon as $lm)
-		                		<small><a href="loaimon/{{$lm->id}}/{{ $lm->ten_khong_dau }}.html"><i>{{$lm->ten}}</i></a></small>
+		                		<small><a href="loaimon/{{$lm->id}}/{{ $lm->ten_khong_dau }}.html">
+		                		      <i>{{$lm->ten}}</i> | </a>
+		                		</small>
 								@endforeach		                		
 		                	</h3>
 		                	<?php  
@@ -37,6 +42,10 @@
 			                        <a href="monan/{{$mon1['id']}}">
 			                            <img class="img-responsive" src="upload/monan/{{$mon1['Hinh']}}" alt="">
 			                        </a>
+			                        <hr>
+			                        <div>
+										<p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$mon1['created_at']}}</p>
+									</div>
 			                    </div>
 
 			                    <div class="col-md-7">

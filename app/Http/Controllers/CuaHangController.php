@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation;
 
 use App\Http\Requests;
-use App\CuaHang;
+use App\Models\CuaHang;
 
 class CuaHangController extends Controller
 {
