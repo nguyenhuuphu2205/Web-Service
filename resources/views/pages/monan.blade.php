@@ -194,13 +194,7 @@
 
     <!-- Footer -->
     <hr>
-    <footer>
-        <div class="row">
-            <div class="col-md-12">
-                <p>Copyright &copy; Your Website 2017</p>
-            </div>
-        </div>
-    </footer>
+     @include('layout.footer')
     <!-- end Footer -->
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

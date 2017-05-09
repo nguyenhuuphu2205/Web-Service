@@ -41,7 +41,8 @@ class MonAnController extends Controller
                             'TieuDe'    =>  'required|min:3|unique:MonAn,TieuDe',
                             'TenMon'    =>  'required|min:3|unique:MonAn,TenMon',
                             'TomTat'     =>  'required',
-                            'NoiDung'    =>  'required'
+                            'NoiDung'    =>  'required',
+                            'Chu_Y'      =>  'required'
 
                         ],
                         [
@@ -55,7 +56,8 @@ class MonAnController extends Controller
                             'TenMon.min'         =>  'Tên Món Cần Dài Hơn 3 ký tự',
                             'TenMon.unique'      =>  'Tên Món Đã tồn tại,nhập tên khác',
                             'TomTat.required'     =>  'Bạn Trưa nhập Tóm tăt..',
-                            'NoiDung.required'    =>  'Bạn Chưa Nhập Nội Dung Cho Món Ăn..'
+                            'NoiDung.required'    =>  'Bạn Chưa Nhập Nội Dung Cho Món Ăn..',
+                            'Chu_Y.required'      =>  'Chưa Nhập Chú ý'
 
                         ]);
 

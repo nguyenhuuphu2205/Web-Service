@@ -21,6 +21,7 @@ class CuaHangController extends Controller
         $this->validate($request,
                         [
                             'ten' => 'required|unique:CuaHang,ten|min:3|max:100',
+                            'gioi_thieu' => 'required',
                             'link' => 'required',
                             'vi_chi' => 'required'
                         ],
@@ -29,6 +30,7 @@ class CuaHangController extends Controller
                             'ten.unique'   => 'Cửa Hàng Này Đã tồn tại..',
                             'ten.min'      => 'Tên phải nằm trong khoảng 3-->100 ký tự',
                             'ten.max'      => 'Tên phải nằm trong khoảng 3-->100 ký tự ',
+                            'gioi_thieu.required' => 'Chưa Viết Giới Thiệu Về Cửa Hàng',
                             'link.required' => 'Chưa nhập Link liên kết tới cửa hàng',
                             'vi_chi.required' => 'Chưa nhập vị chí cửa hàng'
                         ]);
