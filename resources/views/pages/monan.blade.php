@@ -43,7 +43,7 @@
                 <!-- Blog Post -->
 
                 <!-- Title -->
-                <h1>{{$monan->TieuDe}}</h1>
+                <h1>{!!$monan->TieuDe!!}</h1>
 
                 <!-- Author -->
                 <p class="lead">
@@ -52,7 +52,7 @@
 
                 <!-- Preview Image -->
                 <img class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
-                
+                    
             <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
                 <!-- Date/Time -->
                 <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$monan->created_at}}</p>
@@ -203,6 +203,7 @@
     </footer>
     <!-- end Footer -->
     <!-- jQuery -->
+
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

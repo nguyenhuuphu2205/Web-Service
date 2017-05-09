@@ -29,7 +29,7 @@
 		                		<a >{!!$tl->ten!!}</a>  	
 		                		@foreach($tl->loaimon as $lm)
 		                		<small><a href="loaimon/{{$lm->id}}/{{ $lm->ten_khong_dau }}.html">
-		                		      <i>{{$lm->ten}}</i> | </a>
+		                		      <i>{!!$lm->ten!!}</i> </a>
 		                		</small>
 								@endforeach		                		
 		                	</h3>
@@ -39,7 +39,7 @@
 		                	  ?>
 		                	<div class="col-md-8 border-right">
 		                		<div class="col-md-5">
-			                        <a href="monan/{{$mon1['id']}}">
+			                        <a href="monan/{{$mon1['id']}}/{{$mon1['TenMon']}}.html">
 			                            <img class="img-responsive" src="upload/monan/{{$mon1['Hinh']}}" alt="">
 			                        </a>
 			                        <hr>
@@ -59,10 +59,10 @@
 
 							<div class="col-md-4">
 							@foreach($data->all() as $ma)
-								<a href="monan/{{$ma['id']}}/{{ $ma['TieuDeKhongDau'] }}.html">
+								<a href="monan/{{$ma['id']}}/{!! $ma['TieuDeKhongDau'] !!}.html">
 									<h4>
 										<span class="glyphicon glyphicon-list-alt"></span>
-										{{$ma['TieuDe']}}
+										{!!$ma['TieuDe']!!}
 									</h4>
 								</a>
 							@endforeach

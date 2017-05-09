@@ -14,7 +14,7 @@
                     <div class="row-item row">
                         <div class="col-md-3">
 
-                            <a href="monan/{{$ma->id}}">
+                            <a href="monan/{{$ma->id}}/{{$ma->TenMon}}.html">
                                 <br>
                                 <img width="200px" height="200px" class="img-responsive" src="upload/monan/{{$ma->Hinh}}" alt="">
                             </a>
