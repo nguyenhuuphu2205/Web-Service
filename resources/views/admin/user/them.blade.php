@@ -57,9 +57,6 @@
                         <label class="radio-inline">
                             <input name="level" value="1"  type="radio">Admin-add
                         </label>
-                        <label class="radio-inline">
-                            <input name="level" value="0"  type="radio"> Super-Admin
-                        </label>
                     </div>
                     <button type="submit" class="btn btn-default">Thêm</button>
                     <button type="reset" class="btn btn-default">Đặt Lại Mặc Định</button>
