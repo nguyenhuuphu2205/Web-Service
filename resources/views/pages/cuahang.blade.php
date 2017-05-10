@@ -24,7 +24,7 @@
                             {!! $cuahang->gioi_thieu !!}
                         </p>
                     </div>
-                    <h3><span class="glyphicon glyphicon-align-center"></span>Link:</h3>
+                    <h3><span class="glyphicon glyphicon-link">Link:<b align="center">Web Site Của Cửa Hàng</b></span></h3>
                     <div class="media-heading list-group-item-info">
                         <a href="{{ $cuahang->link }}" target="_blank">
                          <h4 style="color:blue;text-align:left;">
