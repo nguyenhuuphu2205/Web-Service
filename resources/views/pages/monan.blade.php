@@ -79,6 +79,8 @@
 
                 <!-- Comments Form -->
                 <div class="well" >
+                <p><b>Video Hướng dẫn:</b></p>
+                 {!!$monan->video!!}
                     @if(count($errors)>0)
                         @foreach($errors as $err)
                         <div class="alert alert-danger">

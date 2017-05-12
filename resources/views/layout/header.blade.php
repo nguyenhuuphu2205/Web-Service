@@ -25,7 +25,7 @@
                 <form class="navbar-form navbar-left" role="search" action="timkiem" method='post'>
 			        <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
-			          <input type="text" class="form-control" placeholder="Search" name="tukhoa">
+			          <input type="text" class="form-control" placeholder="Search" name="tukhoa" id="search">
 			        </div>
 			        <button type="submit" class="btn btn-default" style="color:green;">Tìm kiếm</button>
 			    </form>

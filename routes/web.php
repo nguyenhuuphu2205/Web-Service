@@ -84,6 +84,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
 	Route::group(['prefix'=>'ajax'],function(){
 		Route::get('loaimon/{idTheLoai}','AjaxController@getLoaiMon');
+		Route::get('search/{tukhoa}','AjaxController@search');
 	});
 });
 Route::get('trangchu','PageController@trangchu');
