@@ -51,10 +51,11 @@ class PageController extends Controller
         $monan->SoLuotXem=$view;
         $monan->save();
 
-        $monlienquan=MonAn::where('id_LoaiMon','=',$monan->id_LoaiMon)->orderBy('id','desc')->take(4)->get();
-        $comment=Comment::where('id_MonAn',$id)->orderBy('created_at','desc')->get();
+        $monlienquan=MonAn::where('id_LoaiMon',$monan->id_LoaiMon)->orderBy('id','desc')->take(4)->get();
         $monnoibat=MonAn::where('NoiBat',1)->take(4)->get();
-
+        
+        $comment=Comment::where('id_MonAn',$id)->orderBy('created_at','desc')->get();
+        
         return view('pages.monan',['monan'=>$monan,
                                    'comment'=>$comment,
                                    'monlienquan'=>$monlienquan,

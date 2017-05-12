@@ -32,7 +32,15 @@
 <body>
 
     @include('layout.header')
-
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -147,7 +155,7 @@
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="monan/{{$mlq->id}}/{{ $mlq->TieuDeKhongDau }}.html">{!!$mlq->TieuDe!!}</a>
+                                <a href="monan/{{$mlq->id}}/{{ $mlq->TieuDeKhongDau }}.html">{!!$mlq->TenMon!!}</a>
                             </div>
                             <p style="padding-left: 5px;">{!!$mlq->TomTat!!}</p>
                             <div class="break"></div>
@@ -172,7 +180,7 @@
                                 </a>
                             </div>
                             <div class="col-md-7">
-                                <a href="monan/{{$tnb->id}}/{{ $tnb->TieuDeKhongDau }}.html"><b>{{$tnb->TieuDe}}</b></a>
+                                <a href="monan/{{$tnb->id}}/{{ $tnb->TieuDeKhongDau }}.html"><b>{{$tnb->TenMon}}</b></a>
                             </div>
                             <p style="padding-left:5px;">{!!$tnb->TomTat!!}</p>
                             <div class="break"></div>
@@ -194,6 +202,9 @@
 
     <!-- Footer -->
     <hr>
+     <div align="center">
+         <div class="fb-comments " data-href="http://localhost/Web-Service/public/trangchu" data-numposts="5"></div>
+     </div>
      @include('layout.footer')
     <!-- end Footer -->
     <!-- jQuery -->
