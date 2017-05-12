@@ -62,8 +62,10 @@
                 <img class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
                     
             <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
+
                 <!-- Date/Time -->
                 <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$monan->created_at}}</p>
+
                 <hr>
 
                 <!-- Post Content -->
@@ -71,7 +73,10 @@
                 <p>{!!$monan->NoiDung!!}</p>
                  @if($monan->Chu_Y !=null)
                 <p><b>Chú Ý:{{$monan->Chu_Y}}</b></p>
+
                 @endif
+
+
                
                 <hr>
 
@@ -79,6 +84,7 @@
 
                 <!-- Comments Form -->
                 <div class="well" >
+
                 <p><b>Video Hướng dẫn:</b></p>
                  {!!$monan->video!!}
                     @if(count($errors)>0)
@@ -93,6 +99,27 @@
                             {{session('thongbao')}}
                         </div>
                     @endif
+                    <p>Chia sẻ</p>
+                    <?php
+                        $link_share_fb=urlencode($monan->link); 
+                      ?>
+                    <a href="http://www.facebook.com/sharer.php?u={!!$link_share_fb!!}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+    
+    <!-- Google+ -->
+    <?php
+                        $link_share_fb=urlencode($monan->link); 
+                      ?>
+    <a href="https://plus.google.com/share?url={{$link_share_fb}}" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
+    </a>
+    
+    <!-- LinkedIn -->
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{$link_share_fb}}&title=&summary=&source=" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
+    </a>
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                     <h5><b style="color: green;">(Bạn Cần Đăng Nhập Để Có Thể Bình Luận..)</b></h5>
                     <form action="binhluan/{{$monan->id}}" method="post" role="form">
