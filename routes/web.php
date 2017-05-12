@@ -110,3 +110,10 @@ Route::get('timkiem','PageController@getTimKiem');
 Route::get('vungmien/{id}/{TenKhongDau}.html','PageController@getVungMien');
 //Route::get('teambk',                 'PageController@getTeam');
 Route::get('cuahang/{id}/{TenKhongDau}.html',  'PageController@cuahang');
+/*
+Login With Facebook
+*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
