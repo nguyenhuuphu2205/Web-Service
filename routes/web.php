@@ -118,3 +118,10 @@ Login With Facebook
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+Facebook Login
+*/
+Route::get('auth/facebook', 'FacebookController@redirectToProvider')->name('facebook.login');
+Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
+

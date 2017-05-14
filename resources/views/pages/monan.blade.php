@@ -70,7 +70,7 @@
                 <img class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
                 <br>
                 
-                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" ></div>
+                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/{{$monan->id}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true"  ></div>
                     
             <!-- <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
  -->
