@@ -124,4 +124,9 @@ Facebook Login
 */
 Route::get('auth/facebook', 'FacebookController@redirectToProvider')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@handleProviderCallback');
+/*
+google login
+*/
+Route::get('auth/google','GoogleController@redirectToProvider')->name('google.login');
+Route::get('auth/google/callback','GoogleController@handleProviderCallback');
 

@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
-class FacebookController extends Controller
+class GoogleController extends Controller
 {
     /**
      * Redirect the user to the GitHub authentication page.
@@ -16,7 +16,7 @@ class FacebookController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
     /**
@@ -26,13 +26,14 @@ class FacebookController extends Controller
      */
     public function handleProviderCallback()
     {
+    	
         
         try{
-        $user = Socialite::driver('facebook')->user();
-        }catch(Exception $e){
-            return redirect('auth/facebook');
-        }
-        
+        $user = Socialite::driver('google')->user();
+ 		}catch(Exception $e){
+ 			return redirect('auth/google');
+ 		}
+      
        
 
         $authUser=$this->findOrCreateUser($user);
@@ -41,19 +42,19 @@ class FacebookController extends Controller
         return redirect('trangchu');
 
     }
-    private function findOrCreateUser($facebookUser){
-        $authUser=User::where('facebook_id',$facebookUser->id)->first();
+    private function findOrCreateUser($googleUser){
+        $authUser=User::where('google_id',$googleUser->id)->first();
         if($authUser){
             return $authUser;
         }else{
         $newUser=new User();
-        $newUser->username=$facebookUser->name;
-        $newUser->email="$facebookUser->name"."$facebookUser->id"."@gmail.com";
-        $newUser->facebook_id=$facebookUser->id;
+        $newUser->username=$googleUser->name;
+        $newUser->email=$googleUser->email;
+        $newUser->google_id=$googleUser->id;
         $newUser->level=3;
         $newUser->master=1;
-        $newUser->profile=$facebookUser->profileUrl;
-        $newUser->avatar=$facebookUser->avatar_original;
+        $newUser->profile=$googleUser->email;
+        $newUser->avatar=$googleUser->avatar_original;
         $newUser->save();
         return $newUser;
        }

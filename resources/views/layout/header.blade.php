@@ -44,7 +44,8 @@
                     <li>
 
                     	<a href="nguoidung">
-                    		<span class ="glyphicon glyphicon-user"></span>
+                            <img src="{{Auth::user()->avatar}}" style="height: 25px; width: 25px" />
+                    		<!-- <span class ="glyphicon glyphicon-user" ></span> -->
                     		{{Auth::user()->username}}
                     	</a>
                     </li>

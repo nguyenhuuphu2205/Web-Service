@@ -29,7 +29,7 @@
 							<br>
 							<input  type="submit" class="form-control" value="Đăng nhập" />
 							<a href="{{route('facebook.login')}}" class="form-control" style="text-align: center;">Facebook Login</a>
-							<a href="" class="form-control" style="text-align: center;">Google+ Login</a>
+							<a href="{{route('google.login')}}" class="form-control" style="text-align: center;">Google+ Login</a>
 							</button>
 				    	</form>
 				  	</div>

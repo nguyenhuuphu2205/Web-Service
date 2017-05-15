@@ -154,7 +154,7 @@
                 <!-- Comment -->
                 <div class="media" >
                     <a class="pull-left" href="#">
-                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                        <img class="media-object" src="{{$cm->user->avatar}}" alt="" style="height: 50px;width: 50px;">
                     </a>
                     <div class="media-body" >
                         <h4 class="media-heading media-heading list-group-item-info">
