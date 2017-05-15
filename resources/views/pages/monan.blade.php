@@ -99,7 +99,8 @@
                             {{session('thongbao')}}
                         </div>
                     @endif
-                    <p>Chia sẻ</p>
+                    <div class="text-center">
+                         <p>Chia sẻ</p>
                     <?php
                         $link_share_fb=urlencode($monan->link); 
                       ?>
@@ -120,6 +121,8 @@
     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{$link_share_fb}}&title=&summary=&source=" target="_blank">
         <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
     </a>
+                    </div>
+                   
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                     <h5><b style="color: green;">(Bạn Cần Đăng Nhập Để Có Thể Bình Luận..)</b></h5>
                     <form action="binhluan/{{$monan->id}}" method="post" role="form">

@@ -142,8 +142,13 @@ class UserController extends Controller
 		$userLogin = Auth::user();
 
 		if($userLogin->level == 0){
-			$user->delete();
-		    return redirect('admin/user/danhsach')->with('thongbao','Xóa user thành công...');
+			if($userLogin  == $user){
+				return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản của bạn...');
+			}
+			else{
+				$user->delete();
+		    	return redirect('admin/user/danhsach')->with('thongbao','Xóa user thành công...');
+			}
 		}
 		if(($user == $userLogin) || ($user->level == 1)){
 			return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản của bạn...');
