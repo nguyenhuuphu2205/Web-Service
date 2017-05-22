@@ -41,14 +41,8 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    
+   
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -70,7 +64,7 @@
                 <img class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
                 <br>
                 
-                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/{{$monan->id}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true"  ></div>
+                <div class="fb-like"  data-layout="standard" data-action="" data-size="small" data-show-faces="false"  ></div>
                     
             <!-- <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
  -->

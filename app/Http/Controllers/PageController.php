@@ -62,7 +62,11 @@ class PageController extends Controller
                                    'monnoibat'=>$monnoibat]);
     }
     function getDangNhap(){
-        return view('pages.dangnhap');
+        if(Auth::check()){
+            return redirect('trangchu');
+        }else
+
+            return view('pages.dangnhap');
     }
     function postDangNhap(Request $request){
        $this->validate($request,
