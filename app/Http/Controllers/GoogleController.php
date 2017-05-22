@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
+
 class GoogleController extends Controller
 {
     /**
@@ -43,13 +44,14 @@ class GoogleController extends Controller
 
     }
     private function findOrCreateUser($googleUser){
+
         $authUser=User::where('google_id',$googleUser->id)->first();
         if($authUser){
             return $authUser;
         }else{
+
         $newUser=new User();
         $newUser->username=$googleUser->name;
-        $newUser->email=$googleUser->email;
         $newUser->google_id=$googleUser->id;
         $newUser->level=3;
         $newUser->master=1;
@@ -57,6 +59,7 @@ class GoogleController extends Controller
         $newUser->avatar=$googleUser->avatar_original;
         $newUser->save();
         return $newUser;
+        
        }
 
     }

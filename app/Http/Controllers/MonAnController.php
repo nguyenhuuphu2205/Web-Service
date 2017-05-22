@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Cache\Repository;
+
 use App\Http\Requests;
 use Illuminate\Validation;
 use App\Models\MonAn;
@@ -12,6 +14,7 @@ use App\Models\VungMien;
 use App\Models\Comment;
 use App\Models\User;
 use DateTime;
+
 
 
 class MonAnController extends Controller
@@ -42,7 +45,9 @@ class MonAnController extends Controller
                             'TenMon'    =>  'required|min:3|unique:MonAn,TenMon',
                             'TomTat'     =>  'required',
                             'NoiDung'    =>  'required',
-                            'Chu_Y'      =>  'required'
+                            //'Chu_Y'      =>  'required'
+                            'video'      => 'required',
+                            'link'      => 'required'
 
                         ],
                         [
@@ -57,8 +62,9 @@ class MonAnController extends Controller
                             'TenMon.unique'      =>  'Tên Món Đã tồn tại,nhập tên khác',
                             'TomTat.required'     =>  'Bạn Trưa nhập Tóm tăt..',
                             'NoiDung.required'    =>  'Bạn Chưa Nhập Nội Dung Cho Món Ăn..',
-                            'Chu_Y.required'      =>  'Chưa Nhập Chú ý'
-
+                            //'Chu_Y.required'      =>  'Chưa Nhập Chú ý'
+                            'video.required'     =>   'Bạn Chưa Nhập Link Video Hướng Dẫn',
+                            'link.required'     =>   'Bạn Chưa Nhập Link Tới Video Hướng Dẫn'
                         ]);
 
         $monan = new MonAn;
@@ -70,7 +76,9 @@ class MonAnController extends Controller
         $monan->TomTat = $request->TomTat;
         $monan->NoiDung = $request->NoiDung;
         $monan->Chu_Y  = $request->Chu_Y;
-        $monan->NoiBat =$request->NoiBat;
+        $monan->NoiBat = $request->NoiBat;
+        $monan->video  = $request->video;
+        $monan->link   = $request->link;
         $monan->SoLuotXem = 0;
 
         if($request->hasFile('Hinh')){
@@ -140,7 +148,9 @@ class MonAnController extends Controller
         $monan->TomTat = $request->TomTat;
         $monan->NoiDung = $request->NoiDung;
         $monan->Chu_Y  = $request->Chu_Y;
-        $monan->NoiBat =$request->NoiBat;
+        $monan->NoiBat = $request->NoiBat;
+        $monan->video  = $request->video;
+        $monan->link   = $request->link;
         $monan->SoLuotXem = 0;  
 
         if($request->hasFile('Hinh')){

@@ -71,8 +71,10 @@ class UserController extends Controller
 
 	}
 	public function getSua($id){
+
 		$userLogin = Auth::user();
 		$user = User::find($id);
+
 		if($userLogin != $user){
 			return redirect('admin/user/danhsach')->with('thongbaoloi','Bạn không thể sửa tài khoản khác..');
 		}else{
@@ -177,16 +179,20 @@ class UserController extends Controller
 
 		if($userLogin->level == 0){
 			if($userLogin  == $user){
-				return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản của bạn...');
+				return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản đang đăng nhập...');
 			}
 			else{
 				$user->delete();
 		    	return redirect('admin/user/danhsach')->with('thongbao','Xóa user thành công...');
 			}
 		}
-		if(($user == $userLogin) || ($user->level == 1)){
-			return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản của bạn...');
-		}if(($userLogin->level == 1) && ($user->level == 3)){
+		if(($userLogin->level == 1 && $user->level == 0) || ($user == $userLogin) || ($user->level == 1)){
+			return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản đang đăng nhập...');
+		}
+		/*if(($user == $userLogin) || ($user->level == 1)){
+			return redirect('admin/user/danhsach')->with('thongbaoloi','Không thể xóa Super-Admin, Admin khác hoặc chính tài khoản đang đăng nhập...');
+		}*/
+		if(($userLogin->level == 1) && ($user->level == 3)){
 			$user->delete();
 		    return redirect('admin/user/danhsach')->with('thongbao','Xóa user thành công...');
 		}

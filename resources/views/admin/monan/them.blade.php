@@ -52,11 +52,11 @@
                     </div>
                     <div class="form-group">
                         <label>Tiêu Đề</label>
-                        <input class="form-control" name="TieuDe" placeholder="Vui Lòng Nhập Tiêu Đề.." />
+                        <input class="form-control" id="tieude" name="TieuDe" placeholder="Vui Lòng Nhập Tiêu Đề.." />
                     </div>
                     <div class="form-group">
                         <label>Tên Món</label>
-                        <input class="form-control" name="TenMon" placeholder="Vui Lòng Nhập Tên Món.." />
+                        <input class="form-control" id="tenmon" name="TenMon" placeholder="Vui Lòng Nhập Tên Món.." />
                     </div>
                     <div class="form-group">
                         <label>Tóm Tắt</label>
@@ -68,11 +68,19 @@
                     </div>
                     <div class="form-group">
                         <label>Hình Ảnh</label>
-                        <input type="file" name="Hinh" class="form-control" />
+                        <input type="file" id="hinh" name="Hinh" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Nhúng Video Hướng Dẫn</label>
+                        <input class="form-control"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
+                    </div>
+                    <div class="form-group">
+                        <label>Link Video Hướng Dẫn</label>
+                        <input class="form-control"  name="link" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
                     </div>
                     <div class="form-group">
                         <label>Chú Ý Về Món Ăn </label>
-                        <textarea class="form-control" rows="3" name="Chu_Y"></textarea>
+                        <textarea class="form-control" id="chu_y" rows="3" name="Chu_Y"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Nổi Bật</label>
@@ -91,10 +99,21 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
+            <script type="text/javascript">
+                var tieude = document.getElementById("tieude");
+                var tenmon = document.getElementById("tenmon");
+                var hinh   = document.getElementById("hinh");
+                var chu_y  = document.getElementById("chu_y");
+
+                if(tieude == null || tenmon == null || hinh == null || chu_y == null){
+                    alert("Chý Ý Bạn Cần Nhập Đày Đủ Các Trường Để Thêm Món Ăn.....");
+                }
+            </script>
 </div>
         <!-- /#page-wrapper -->
 @endsection
 
+<!--sử dụng công nghệ Ajax-->
 @section('script')
     <script>
         $(document).ready(function(){

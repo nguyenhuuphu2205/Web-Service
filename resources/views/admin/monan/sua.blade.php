@@ -95,6 +95,16 @@
                         <input type="file" name="Hinh" class="form-control" />
                     </div>
                     <div class="form-group">
+                        <label>Nhúng Video Hướng Dẫn</label>
+                        <input class="form-control"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.."
+                        value="{{ $monan->video }}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Link Video Hướng Dẫn</label>
+                        <input class="form-control"  name="link" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.."
+                        value="{{ $monan->link }}" />
+                    </div>
+                    <div class="form-group">
                         <label>Chú Ý Về Món Ăn </label>
                         <textarea class="form-control" rows="3" name="Chu_Y">
                             {{$monan->Chu_Y}}
