@@ -75,6 +75,10 @@
                         <textarea class="form-control" rows="3" name="Chu_Y"></textarea>
                     </div>
                     <div class="form-group">
+                        <label>Link Video Hướng dẫn</label>
+                        <input class="form-control" name="link" placeholder="Vui lòng nhập link hướng dẫn món ăn.." />
+                    </div>
+                    <div class="form-group">
                         <label>Nổi Bật</label>
                         <label class="radio-inline">
                             <input name="NoiBat" value="1" checked="" type="radio">Có
