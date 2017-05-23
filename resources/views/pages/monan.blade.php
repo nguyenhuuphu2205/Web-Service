@@ -17,10 +17,7 @@
     <link href="css/my.css" rel="stylesheet">
    
     <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8" async defer></script>
-    <script>
-
-    </script>
-      
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,15 +52,12 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-
             <!-- Blog Post Content Column -->
             <div class="col-lg-9">
-
-                <!-- Blog Post -->
-
+            <!-- Blog Post -->
                 <!-- Title -->
                 <div class="media-heading list-group-item-info">
-                    <h1 style="color: #ff2d17;text-align: center;">{!!$monan->TieuDe!!}</h1>
+                    <h1 style="color: #0000EE;text-align: center;">{!!$monan->TieuDe!!}</h1>
                     <!-- Author -->
                     <p class="lead" style="font-size: 25px;">
                      Tên Món:<b style="font-size: 30px;color:black;">{{ $monan->TenMon }}</b>
@@ -72,8 +66,7 @@
                 <!-- Preview Image -->
                 <div class="form-group" style="border-top-left-radius: 5px;color: green;">
                      <img style="width: 850px;height: 400px;" class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
-                </div>
-               
+                </div>  
                 <br>
                 <!-- Date/Time -->
                 <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$monan->created_at}}</p>
@@ -85,7 +78,6 @@
                 <p>{!!$monan->NoiDung!!}</p>
                  @if($monan->Chu_Y !=null)
                 <p><b>Chú Ý:{{$monan->Chu_Y}}</b></p>
-
                 @endif
                 <hr>
                 <!-- Blog Comments -->
@@ -105,7 +97,6 @@
                             {{session('thongbao')}}
                         </div>
                     @endif
-
                     <p>Chia sẻ</p>
                     <?php
                         $link_share_fb=urlencode($monan->link); 
@@ -125,23 +116,41 @@
                     </div>
 <!-- Cần sử lý Ajax cho phần comment-->
                     <!-- Viết Bình Luận  cho món ăn-->
-
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                     <h5><b style="color: green;">(Bạn Cần Đăng Nhập Để Có Thể Bình Luận..)</b></h5>
                     <form action="binhluan/{{$monan->id}}" method="post" role="form">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" name="NoiDung" id="NoiDung"></textarea>
+                            <textarea class="form-control" rows="3" name="NoiDung" id="noidung"></textarea>
                         </div>
                         @if(Auth::check())
-                        <button type="submit" class="btn btn-primary" >Gửi</button>
+                        <button id="submit" class="btn btn-primary">Gửi</button>
                         @else
-                        <button type="submit" class="btn btn-primary" disabled="">Gửi</button>
+                        <button id="submit" class="btn btn-primary" disabled="">Gửi</button>
                         @endif
-
+                        {{--
+                            @if(Auth::check())
+                            <button type="submit" class="btn btn-primary" >Gửi</button>
+                            @else
+                            <button type="submit" class="btn btn-primary" disabled="">Gửi</button>
+                            @endif
+                         --}}
                     </form>
+                    <script language="javascript">
+                        $(document.ready(function(){
+                            $('#submit').click(function(e) {
+                                  e.preventDefault();
+                                  var info = $('#noidung').val();
+                                    $.ajax({
+                                        type: "POST",
+                                        url:  "binhluan/{{ $monan->id }}",
+                                        data: {noidung: info}
+                                    });
+                            });
+                        }));
+                    </script>
                 </div>
-<!---->
+<!-- -->
                 <hr>
                 <!-- Posted Comments -->
                 @if(count($comment)>0)
@@ -151,7 +160,7 @@
                     <a class="pull-left" href="#">
                         <img class="media-object" src="{{$cm->user->avatar}}" alt="" style="height: 50px;width: 50px;">
                     </a>
-                    <div class="media-body" >
+                    <div class="media-body" id="comment" >
                         <h4 class="media-heading media-heading list-group-item-info">
                         {{$cm->user->username}}
                         @if($cm->user->level == 0)

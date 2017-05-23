@@ -21,15 +21,25 @@
                         <a href="lienhe"><b style="color: red;">Liên hệ</b></a>
                     </li>
                 </ul>
-
-                <form class="navbar-form navbar-left" role="search" action="timkiem" method='post'>
+                <form class="navbar-form navbar-left" role="search" action="" method='post' id="form">
 			        <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="form-group">
-			            <input type="text" class="form-control" placeholder="Search" name="tukhoa" id="search">
+			            <input type="text" class="form-control" placeholder="Tìm Món ?" name="tukhoa" id="search" onkeyup="sent()">
 			        </div>
 			        <button type="submit" class="btn btn-default" style="color:green;">Tìm kiếm</button>
 			    </form>
-
+                <script type="text/javascript" charset="utf-8" async defer>
+                   function sent(){
+                      var tukhoa = $('#search').val();
+                      var form = document.getElementById("form");
+                      if(tukhoa != ""){
+                        form.action = "timkiem/tu-khoa="+tukhoa+".html";
+                      }
+                      if(tukhoa == ""){
+                        form.action = "trangchu";
+                      }
+                    }
+                </script>
 			    <ul class="nav navbar-nav pull-right">
                     @if(!Auth::check())
                     <li>

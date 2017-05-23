@@ -107,8 +107,8 @@ Route::post('binhluan/{id}','PageController@postBinhLuan');
 Route::get('nguoidung','PageController@getNguoiDung');
 Route::post('nguoidung','PageController@postNguoiDung');
 
-Route::post('timkiem','PageController@postTimKiem');
-Route::get('timkiem','PageController@getTimKiem');
+Route::post('timkiem/tu-khoa={tukhoa}.html','PageController@postTimKiem');
+Route::get('timkiem/tu-khoa={tukhoa}.html','PageController@getTimKiem');
 
 
 Route::get('vungmien/{id}/{TenKhongDau}.html','PageController@getVungMien');

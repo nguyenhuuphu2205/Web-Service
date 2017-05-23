@@ -22,12 +22,16 @@
                                 <img width="200px" height="200px" class="img-responsive" src="upload/monan/{{$ma->Hinh}}" alt="">
                             </a>
                             <hr>
+                            <a href="monan/{{$ma->id}}/{{$ma->TenMon}}.html">
+                                Món Ăn:<b>{{ $ma->TenMon }}</b>
+                            </a>
+                            <hr>
                             <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$ma->created_at}}</p>
                         </div>
 
                         <div class="col-md-9">
                             <h2>{{$ma->TieuDe}}</h3>
-                            <a href="monan/{{$ma->id}}/{{ $ma->TieuDeKhongDau }}.html"><h3 style="color: red;">{{$ma->TenMon}}</h3></a>
+                            <b>Tóm Tắt:</b>
                             <p>{!!$ma->TomTat!!}</p>
                             <a class="btn btn-primary" href="monan/{{$ma->id}}/{{ $ma->TieuDeKhongDau }}.html">Chi tiết<span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>

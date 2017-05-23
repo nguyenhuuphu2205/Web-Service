@@ -12,7 +12,7 @@
 	            	<!--<h2 style="margin-top:0px; margin-bottom:5px; padding-left: 250px;">Ẩm Thực Bách Khoa</h2>-->
 	            		<h2 style="margin-top:0px; margin-bottom:5px;text-align: center;color: #dfd00f;font-size: 30px;">
 	            		Ẩm Thực Bách Khoa</h2>
-	            		<p align="center" style="color:cyan;">(Ngon + Bổ + Rẻ + Nhanh + Đảm Bảo An Toàn)</p>
+	            		<p align="center" style="color:cyan;">(Nhìn và Cảm Nhận)</p>
 	            	</div>
 	            </div>
 	            	<div class="panel-body">
@@ -29,13 +29,17 @@
 								@endforeach		                		
 		                	</h3>
 		                	<?php  
-		                	$data =$tl->monan->where('NoiBat','1')->sortByDesc('created_at')->take(5);
+		                	$data =$tl->monan->where('NoiBat','1')->sortByDesc('created_at')->take(6);
 		                	$mon1=$data->shift();
-		                	  ?>
+		                	?>
 		                	<div class="col-md-8 border-right">
 		                		<div class="col-md-5">
 			                        <a href="monan/{{$mon1['id']}}/{{$mon1['TenMon']}}.html">
 			                            <img class="img-responsive" src="upload/monan/{{$mon1['Hinh']}}" alt="" style="width: 220px;height: 200px;">
+			                        </a>
+			                        <hr>
+			                        <a href="monan/{{$mon1['id']}}/{{$mon1['TenMon']}}.html">
+			                        	Món Ăn:<b>{{$mon1['TenMon']}}</b>
 			                        </a>
 			                        <hr>
 			                        <div>

@@ -71,12 +71,12 @@
                         <input type="file" id="hinh" name="Hinh" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Nhúng Video Hướng Dẫn</label>
-                        <input class="form-control"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
+                        <label>Nhúng Video Hướng Dẫn (width = 800px ; height= 400px)</label>
+                        <input class="form-control" id="video"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
                     </div>
                     <div class="form-group">
                         <label>Link Video Hướng Dẫn</label>
-                        <input class="form-control"  name="link" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
+                        <input class="form-control" id="link"  name="link" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
                     </div>
                     <div class="form-group">
                         <label>Chú Ý Về Món Ăn </label>
@@ -99,16 +99,6 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-            <script type="text/javascript">
-                var tieude = document.getElementById("tieude");
-                var tenmon = document.getElementById("tenmon");
-                var hinh   = document.getElementById("hinh");
-                var chu_y  = document.getElementById("chu_y");
-
-                if(tieude == null || tenmon == null || hinh == null || chu_y == null){
-                    alert("Chý Ý Bạn Cần Nhập Đày Đủ Các Trường Để Thêm Món Ăn.....");
-                }
-            </script>
 </div>
         <!-- /#page-wrapper -->
 @endsection
@@ -124,5 +114,6 @@
                 });
             });
         });
+
     </script>
 @endsection

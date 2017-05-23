@@ -51,8 +51,8 @@ class PageController extends Controller
         $monan->SoLuotXem=$view;
         $monan->save();
 
-        $monlienquan=MonAn::where('id_LoaiMon',$monan->id_LoaiMon)->orderBy('id','desc')->take(4)->get();
-        $monnoibat=MonAn::where('NoiBat',1)->take(4)->get();
+        $monlienquan=MonAn::where('id_LoaiMon',$monan->id_LoaiMon)->orderBy('id','desc')->take(5)->get();
+        $monnoibat=MonAn::where('NoiBat',1)->take(5)->get();
         
         $comment=Comment::where('id_MonAn',$id)->orderBy('created_at','desc')->get();
         
@@ -142,10 +142,13 @@ class PageController extends Controller
         $user->save();
         return redirect('dangky')->with('thongbao','Đăng ký thành công');
     }
+
     function postBinhLuan($id,Request $request){
+
         $this->validate($request,array(
             'NoiDung'=>'required|max:255',
             ));
+        
         $monan = Monan::find($id);
         $comment=new Comment();
         $comment->NoiDung=$request->NoiDung;
@@ -206,13 +209,20 @@ class PageController extends Controller
         $user->save();
         return redirect('nguoidung')->with('thongbao','Sửa thông tin thành công');
     }
-    function getTimKiem(){
-        return view('pages.timkiem');
+    function getTimKiem(Request $request){
+        $tukhoa = $request->tukhoa;
+        if($tukhoa == ""){
+            return view('pages.trangchu');
+        }
+        $monan=MonAn::where('TenMon','like',"%$tukhoa%")->get();
+        return view('pages.timkiem',['tukhoa'=>$tukhoa,'monanTim'=>$monan]);
     }
     function postTimKiem(Request $request){
-       
         $tukhoa=$request->tukhoa;
-        $monan=MonAn::where('TieuDe','like',"%$tukhoa%")->get();
+        if($tukhoa == ""){
+            return view('pages.trangchu');
+        }
+        $monan=MonAn::where('TenMon','like',"%$tukhoa%")->get();
         return view('pages.timkiem',['tukhoa'=>$tukhoa,'monanTim'=>$monan]);
     }
    function getGioiThieu(){

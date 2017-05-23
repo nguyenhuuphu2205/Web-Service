@@ -95,7 +95,7 @@
                         <input type="file" name="Hinh" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Nhúng Video Hướng Dẫn</label>
+                        <label>Nhúng Video Hướng Dẫn (Width = 800px;Height = 400px)</label>
                         <input class="form-control"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.."
                         value="{{ $monan->video }}" />
                     </div>
