@@ -8,11 +8,12 @@ use App\Http\Requests;
 use App\Models\TheLoai;
 use App\Models\LoaiMon;
 use App\Models\MonAn;
+use App\Models\Comments;
 
 class AjaxController extends Controller
 {
     public function getLoaiMon($idTheLoai){
-
+    	
     	$loaimon = LoaiMon::where('id_TheLoai',$idTheLoai)->get();
 
     	foreach ($loaimon as $lm) {
@@ -20,6 +21,7 @@ class AjaxController extends Controller
     	}
 
 	}
+
 	public function search($tukhoa){
 		$monan=MonAn::where('TieuDe','like',"%$tukhoa%")->get();
        	  foreach ($monan as $ma) {
@@ -43,6 +45,6 @@ class AjaxController extends Controller
                     </div>";
                   }
 
-	}
+
 	
 }
