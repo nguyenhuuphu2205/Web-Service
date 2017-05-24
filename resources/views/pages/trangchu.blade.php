@@ -10,10 +10,40 @@
 	            <div class="panel panel-default">            
 	            	<div class="panel-heading" style="background-color:green; color:white;" >
 	            	<!--<h2 style="margin-top:0px; margin-bottom:5px; padding-left: 250px;">Ẩm Thực Bách Khoa</h2>-->
-	            		<h2 style="margin-top:0px; margin-bottom:5px;text-align: center;color: #dfd00f;font-size: 30px;">
-	            		Ẩm Thực Bách Khoa</h2>
-	            		<p align="center" style="color:cyan;">(Nhìn và Cảm Nhận)</p>
+	            		<h2 style="margin-top:0px;color:#F9F400; margin-bottom:5px;text-align: center;font-size: 40px;">
+	            		ẨM THỰC BÁCH KHOA</h2>
+	            		<p align="center" style="font-size: 30px;font-style: oblique;" id="doimau">  Nấu Ăn Là Cả Một Nghệ Thuật  </p>
+
+	            		<script type="text/javascript" language="javascript">
+	            		    document.getElementById("doimau").addEventListener("mouseover",dung);
+	            		    //document.getElementById("doimau").addEventListener("mousedown",tiep);
+	            		    document.getElementById("doimau").addEventListener("mouseleave",tiep);
+	            		    var i = 1;
+	            		    var t ;
+                            var colors = ['red','cyan','blue',
+                            			  'orange','black','beige','brown',
+                            			  'magenta','pink','purple','turquoise',
+                            			  'violet','yellow','salmon','baby','gold'	  
+                                         ];	
+	            			function doimau(){
+	            				document.getElementById("doimau").style.color = colors[i];
+	            				i = Math.floor((Math.random() * 10)+5);
+	            				t = setTimeout(function(){
+	            					doimau();
+	            				},500);
+	            			}
+	            			doimau();
+	            			function dung(){
+	            				clearTimeout(t);
+	            			}
+	            			function tiep(){
+	            				t = setTimeout(function(){
+	            					doimau();
+	            				},500);
+	            			}
+	            		</script>
 	            	</div>
+	            	
 	            </div>
 	            	<div class="panel-body">
 	            		@foreach($theloai as $tl)

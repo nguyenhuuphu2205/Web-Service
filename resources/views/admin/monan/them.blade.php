@@ -52,11 +52,11 @@
                     </div>
                     <div class="form-group">
                         <label>Tiêu Đề</label>
-                        <input class="form-control" id="tieude" name="TieuDe" placeholder="Vui Lòng Nhập Tiêu Đề.." />
+                        <input class="form-control" name="TieuDe" placeholder="Vui Lòng Nhập Tiêu Đề.." required/>
                     </div>
                     <div class="form-group">
                         <label>Tên Món</label>
-                        <input class="form-control" id="tenmon" name="TenMon" placeholder="Vui Lòng Nhập Tên Món.." />
+                        <input class="form-control" name="TenMon" placeholder="Vui Lòng Nhập Tên Món.." required/>
                     </div>
                     <div class="form-group">
                         <label>Tóm Tắt</label>
@@ -68,19 +68,15 @@
                     </div>
                     <div class="form-group">
                         <label>Hình Ảnh</label>
-                        <input type="file" id="hinh" name="Hinh" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Nhúng Video Hướng Dẫn (width = 800px ; height= 400px)</label>
-                        <input class="form-control" id="video"  name="video" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
-                    </div>
-                    <div class="form-group">
-                        <label>Link Video Hướng Dẫn</label>
-                        <input class="form-control" id="link"  name="link" placeholder="Vui Lòng Nhập Link Video Dạy Nấu Ăn.." />
+                        <input type="file" name="Hinh" class="form-control" required/>
                     </div>
                     <div class="form-group">
                         <label>Chú Ý Về Món Ăn </label>
-                        <textarea class="form-control" id="chu_y" rows="3" name="Chu_Y"></textarea>
+                        <textarea class="form-control" rows="3" name="Chu_Y"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Link Video Hướng dẫn</label>
+                        <input class="form-control" name="link" placeholder="Vui lòng nhập link hướng dẫn món ăn.." required/>
                     </div>
                     <div class="form-group">
                         <label>Nổi Bật</label>
@@ -103,7 +99,6 @@
         <!-- /#page-wrapper -->
 @endsection
 
-<!--sử dụng công nghệ Ajax-->
 @section('script')
     <script>
         $(document).ready(function(){
@@ -114,6 +109,5 @@
                 });
             });
         });
-
     </script>
 @endsection

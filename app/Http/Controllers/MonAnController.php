@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Cache\Repository;
-
 use App\Http\Requests;
 use Illuminate\Validation;
 use App\Models\MonAn;
@@ -16,20 +14,17 @@ use App\Models\User;
 use DateTime;
 
 
-
 class MonAnController extends Controller
 {
     public function getDanhSach(){
-
         $monan  = MonAn::orDerBy('id','DESC')->get();
-    	return view('admin.monan.danhsach',['monan'=>$monan]);
+        return view('admin.monan.danhsach',['monan'=>$monan]);
     }
     public function getThem(){
-
         $theloai = TheLoai::all();
         $loaimon = LoaiMon::all();
         $vungmien = VungMien::all();
-    	return view('admin.monan.them',[
+        return view('admin.monan.them',[
                                             'theloai'=>$theloai,
                                             'loaimon'=>$loaimon,
                                             'vungmien'=>$vungmien
@@ -45,9 +40,8 @@ class MonAnController extends Controller
                             'TenMon'    =>  'required|min:3|unique:MonAn,TenMon',
                             'TomTat'     =>  'required',
                             'NoiDung'    =>  'required',
-                            //'Chu_Y'      =>  'required'
-                            'video'      => 'required',
-                            'link'      => 'required'
+                            'Chu_Y'      =>  'required',
+                            'link'       => 'required',
 
                         ],
                         [
@@ -62,11 +56,10 @@ class MonAnController extends Controller
                             'TenMon.unique'      =>  'Tên Món Đã tồn tại,nhập tên khác',
                             'TomTat.required'     =>  'Bạn Trưa nhập Tóm tăt..',
                             'NoiDung.required'    =>  'Bạn Chưa Nhập Nội Dung Cho Món Ăn..',
-                            //'Chu_Y.required'      =>  'Chưa Nhập Chú ý'
-                            'video.required'     =>   'Bạn Chưa Nhập Link Video Hướng Dẫn',
-                            'link.required'     =>   'Bạn Chưa Nhập Link Tới Video Hướng Dẫn'
-                        ]);
+                            'Chu_Y.required'      =>  'Chưa Nhập Chú ý',
+                            'link.required'       => 'Chưa nhập link video hướng dẫn',
 
+                        ]);
         $monan = new MonAn;
         $monan->id_LoaiMon = $request->sltLoaiMon;
         $monan->id_VungMien = $request->sltVungMien;
@@ -76,9 +69,9 @@ class MonAnController extends Controller
         $monan->TomTat = $request->TomTat;
         $monan->NoiDung = $request->NoiDung;
         $monan->Chu_Y  = $request->Chu_Y;
-        $monan->NoiBat = $request->NoiBat;
-        $monan->video  = $request->video;
-        $monan->link   = $request->link;
+        $monan->NoiBat =$request->NoiBat;
+        $monan->link=$request->link;
+        $monan->video="<div style=position:relative;height:0;padding-bottom:56.21%><iframe src=https://www.youtube.com/embed/".substr($request->link,17)."?ecver=2 style=position:absolute;width:100%;height:100%;left:0 width=641 height=360 frameborder=0 allowfullscreen></iframe></div>";
         $monan->SoLuotXem = 0;
 
         if($request->hasFile('Hinh')){
@@ -99,7 +92,6 @@ class MonAnController extends Controller
             $monan->Hinh = "";
         }
         $monan->save();
-
         return redirect('admin/monan/them')->with('thongbao',"Bạn Đã Thêm Món Ăn thành Công..");
     }
     public function getSua($id){
@@ -108,7 +100,7 @@ class MonAnController extends Controller
         $vungmien = VungMien::all();
         $monan    =  MonAn::find($id);
         $comment=$monan->comment;
-    	return view('admin/monan/sua',[
+        return view('admin/monan/sua',[
                                         'theloai' =>$theloai,
                                         'loaimon' =>$loaimon, 
                                         'vungmien'=>$vungmien,
@@ -117,7 +109,6 @@ class MonAnController extends Controller
                                         ]);
     }
     public function postSua(Request $request,$id){
-
         $monan = MonAn::find($id);
         $this->validate($request,
                                 [
@@ -127,7 +118,8 @@ class MonAnController extends Controller
                                     'TieuDe'   =>  "required|unique:MonAn,TieuDe,$id|min:3",
                                     'TenMon'   =>  "required|unique:MonAn,TenMon,$id|min:3",
                                     'TomTat'    =>  'required',
-                                    'NoiDung'   =>  'required'
+                                    'NoiDung'   =>  'required',
+                                    'link'      =>  'required',
                                 ],
                                 [
                                     'sltTheLoai.required'  => 'Bạn Chưa Trọn Thể Loại ',
@@ -138,7 +130,8 @@ class MonAnController extends Controller
                                     'TenMon.required'   => 'Bạn Chưa Thay Đổi Tên Món Ăn',
                                     'TenMon.min'        => 'Tên Món Cần có độ dìa trong khoảng > 3 Ký tự',
                                     'TomTat.required'    => 'Bạn Chưa Thay Đổi tóm Tắt',
-                                    'NoiDung.required'   => 'Bạn Chưa Thay Đổi Nội Dung'
+                                    'NoiDung.required'   => 'Bạn Chưa Thay Đổi Nội Dung',
+                                    'link.required'      =>  'Bạn chưa nhập link video hướng dẫn',
                                 ]);
         $monan->id_LoaiMon = $request->sltLoaiMon;
         $monan->id_VungMien = $request->sltVungMien;
@@ -148,11 +141,10 @@ class MonAnController extends Controller
         $monan->TomTat = $request->TomTat;
         $monan->NoiDung = $request->NoiDung;
         $monan->Chu_Y  = $request->Chu_Y;
-        $monan->NoiBat = $request->NoiBat;
-        $monan->video  = $request->video;
-        $monan->link   = $request->link;
+        $monan->NoiBat =$request->NoiBat;
         $monan->SoLuotXem = 0;  
-
+        $monan->link=$request->link;
+        $monan->video="<div style=position:relative;height:0;padding-bottom:56.21%><iframe src=https://www.youtube.com/embed/".substr($request->link,17)."?ecver=2 style=position:absolute;width:100%;height:100%;left:0 width=641 height=360 frameborder=0 allowfullscreen></iframe></div>";
         if($request->hasFile('Hinh')){
                 $file = $request->file('Hinh');
                 $duoi = $file->getClientOriginalExtension();
@@ -169,7 +161,6 @@ class MonAnController extends Controller
                 $monan->Hinh = $Hinh;
         }
         $monan->save();
-
         return redirect('admin/monan/sua/'.$id)->with('thongbao','Bạn Đã Sửa Thành Công món ăn.');
     }
     public function getXoa($id){

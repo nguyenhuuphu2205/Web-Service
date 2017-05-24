@@ -37,6 +37,9 @@
                     </div>
                      @endforeach
                      </div>
+                     <div style="text-align: center; ">
+                         {{$monanTim->links()}}
+                     </div>
                 </div>
             </div> 
         </div>

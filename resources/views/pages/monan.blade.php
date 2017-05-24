@@ -17,7 +17,7 @@
     <link href="css/my.css" rel="stylesheet">
    
     <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8" async defer></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,11 +25,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body onload="startTime()">
 
     @include('layout.header')
     <div id="fb-root"></div>
-
                 <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) return;
@@ -49,6 +48,15 @@
                 fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
                 </script>
+    <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -68,15 +76,16 @@
                      <img style="width: 850px;height: 400px;" class="img-responsive" src="upload/monan/{{$monan->Hinh}}" alt="">
                 </div>  
                 <br>
-                <!-- Date/Time -->
+            <!-- <img id='unlike' class="img-responsive center-block" style="margin-left: 5px;" src="upload/like.jpg" alt="" width="50px" height="50px" onclick="document.getElementById('unlike').src='upload/liked.jpg'">
+ -->
+       <!-- Date/Time -->
                 <p><span class="glyphicon glyphicon-time"></span>Ngày Đăng: {{$monan->created_at}}</p>
-
                 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true"  ></div>
                 <hr>
                 <!-- Post Content -->
                 <p class="lead"><b>{!!$monan->TomTat!!}</b></p>
                 <p>{!!$monan->NoiDung!!}</p>
-                 @if($monan->Chu_Y !=null)
+                @if($monan->Chu_Y !=null)
                 <p><b>Chú Ý:{{$monan->Chu_Y}}</b></p>
                 @endif
                 <hr>
@@ -114,7 +123,7 @@
                              <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
                             </a>
                     </div>
-<!-- Cần sử lý Ajax cho phần comment-->
+                    <!-- Cần sử lý Ajax cho phần comment-->
                     <!-- Viết Bình Luận  cho món ăn-->
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                     <h5><b style="color: green;">(Bạn Cần Đăng Nhập Để Có Thể Bình Luận..)</b></h5>
@@ -245,10 +254,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/my.js"></script>
-    {{-- Phần Nhúng thư Viện Cho Ajax --}}
-    <meta name="_token" content="{!! csrf_token() !!}" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="{{asset('js/ajaxComment.js')}}"></script>
+
 </body>
 </html>

@@ -8,10 +8,11 @@
             <div class="col-md-9 ">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:green; color:white;">
+                    <div class="panel-heading" style="background-color:green; color
+                    :white;">
                         <h4><b>{{$loaimon->ten}}</b></h4>
                     </div>
-<!-- Phần Nội dung của trang :loại Món -->
+                 <!-- Phần Nội dung của trang :loại Món -->
                 <div id="loaimon">
                    @foreach($monan as $ma)
                     <div class="row-item row">
@@ -38,10 +39,11 @@
                         <div class="break"></div>
                     </div>
                     @endforeach
+                    
                 </div>
-<!--Kết thúc phần nội dung của trang Loại Món-->
+                <!--Kết thúc phần nội dung của trang Loại Món-->
 
-<!--phân trang cho font-and sử dụng hàm có sẵn trong Laravel frameword-->
+                <!--phân trang cho font-and sử dụng hàm có sẵn trong Laravel frameword-->
                         <div style="text-align: center; ">
                              {{$monan->links()}}
                         </div>
