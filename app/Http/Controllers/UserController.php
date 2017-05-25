@@ -128,7 +128,10 @@ class UserController extends Controller
 		return redirect('admin/user/sua/'.$id)->with('thongbao','Đã Sửa User thành Công..');
 	}
 	public function getDangNhapAdmin(){
-		return view('admin.login');
+		if(Auth::check()){
+			return redirect('admin/theloai/danhsach');
+		}else
+			return view('admin.login');
 	}
 	public function postDangNhapAdmin(Request $request){
 		$this->validate($request,

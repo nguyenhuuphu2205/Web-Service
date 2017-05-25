@@ -3488,58 +3488,6 @@
         ]
     },
     {
-        "name": "predis/predis",
-        "version": "v1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/nrk/predis.git",
-            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
-            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.9"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.8"
-        },
-        "suggest": {
-            "ext-curl": "Allows access to Webdis when paired with phpiredis",
-            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
-        },
-        "time": "2016-06-16T16:22:20+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Predis\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Daniele Alessandri",
-                "email": "suppakilla@gmail.com",
-                "homepage": "http://clorophilla.net"
-            }
-        ],
-        "description": "Flexible and feature-complete Redis client for PHP and HHVM",
-        "homepage": "http://github.com/nrk/predis",
-        "keywords": [
-            "nosql",
-            "predis",
-            "redis"
-        ]
-    },
-    {
         "name": "psy/psysh",
         "version": "v0.8.5",
         "version_normalized": "0.8.5.0",
@@ -3802,36 +3750,90 @@
         ]
     },
     {
-        "name": "swiggles/memcache",
-        "version": "2.0.1",
-        "version_normalized": "2.0.1.0",
+        "name": "sebastian/diff",
+        "version": "1.4.2",
+        "version_normalized": "1.4.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/swiggles/laravel-memcache.git",
-            "reference": "bc63da268254b111e2c11f9fdd70af2f03e35142"
+            "url": "https://github.com/sebastianbergmann/diff.git",
+            "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/swiggles/laravel-memcache/zipball/bc63da268254b111e2c11f9fdd70af2f03e35142",
-            "reference": "bc63da268254b111e2c11f9fdd70af2f03e35142",
+            "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
+            "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
             "shasum": ""
         },
         "require": {
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0"
+            "php": "^5.3.3 || ^7.0"
         },
         "require-dev": {
-            "illuminate/cache": "~5.0",
-            "illuminate/session": "~5.0",
-            "mockery/mockery": "~0.9",
-            "phpunit/phpunit": "~4.0"
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
         },
-        "time": "2016-12-07T18:25:37+00:00",
+        "time": "2017-05-18T13:44:30+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kore Nordmann",
+                "email": "mail@kore-nordmann.de"
+            },
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de"
+            }
+        ],
+        "description": "Diff implementation",
+        "homepage": "https://github.com/sebastianbergmann/diff",
+        "keywords": [
+            "diff"
+        ]
+    },
+    {
+        "name": "predis/predis",
+        "version": "v1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nrk/predis.git",
+            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+            "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.9"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "ext-curl": "Allows access to Webdis when paired with phpiredis",
+            "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+        },
+        "time": "2016-06-16T16:22:20+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Swiggles\\Memcache\\": "src/"
+                "Predis\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3840,18 +3842,17 @@
         ],
         "authors": [
             {
-                "name": "Sam Wiggins",
-                "homepage": "https://github.com/swiggles"
+                "name": "Daniele Alessandri",
+                "email": "suppakilla@gmail.com",
+                "homepage": "http://clorophilla.net"
             }
         ],
-        "description": "Memcache driver for Laravel 5",
-        "homepage": "https://github.com/swiggles/laravel-memcache",
+        "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+        "homepage": "http://github.com/nrk/predis",
         "keywords": [
-            "cache",
-            "caching",
-            "laravel",
-            "laravel 5",
-            "memcache"
+            "nosql",
+            "predis",
+            "redis"
         ]
     },
     {
@@ -3915,60 +3916,6 @@
         ]
     },
     {
-        "name": "sebastian/diff",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/diff.git",
-            "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
-            "reference": "3c7d21999e815cdfac70c6c7d79d3a9cb1bc7bc2",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.3.3 || ^7.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
-        },
-        "time": "2017-05-18T13:44:30+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Kore Nordmann",
-                "email": "mail@kore-nordmann.de"
-            },
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de"
-            }
-        ],
-        "description": "Diff implementation",
-        "homepage": "https://github.com/sebastianbergmann/diff",
-        "keywords": [
-            "diff"
-        ]
-    },
-    {
         "name": "sammyk/laravel-facebook-sdk",
         "version": "3.4.2",
         "version_normalized": "3.4.2.0",
@@ -4027,6 +3974,59 @@
             "laravel",
             "lumen",
             "sdk"
+        ]
+    },
+    {
+        "name": "swiggles/memcache",
+        "version": "2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiggles/laravel-memcache.git",
+            "reference": "bc63da268254b111e2c11f9fdd70af2f03e35142"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiggles/laravel-memcache/zipball/bc63da268254b111e2c11f9fdd70af2f03e35142",
+            "reference": "bc63da268254b111e2c11f9fdd70af2f03e35142",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "illuminate/cache": "~5.0",
+            "illuminate/session": "~5.0",
+            "mockery/mockery": "~0.9",
+            "phpunit/phpunit": "~4.0"
+        },
+        "time": "2016-12-07T18:25:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Swiggles\\Memcache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sam Wiggins",
+                "homepage": "https://github.com/swiggles"
+            }
+        ],
+        "description": "Memcache driver for Laravel 5",
+        "homepage": "https://github.com/swiggles/laravel-memcache",
+        "keywords": [
+            "cache",
+            "caching",
+            "laravel",
+            "laravel 5",
+            "memcache"
         ]
     }
 ]
